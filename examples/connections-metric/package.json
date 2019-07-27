@@ -1,0 +1,11 @@
+{
+  "name": "connections-metric",
+  "version": "1.0.0",
+  "description": "An app to emulate a socketio server scaling and defending itself in k8s",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Kopp",
+  "license": "ISC"
+}
