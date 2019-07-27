@@ -14,7 +14,7 @@ This logic will be simulated by keeping a tally of requests that come in
 on the `/connection` endpoint. This tally will simulate the `connection_count`
 real-world metric.
 
-A super chatty and high-volume socketio server in real life can become overwhelmed
+A chatty and high-volume socketio server in real life can become overwhelmed
 trying to serve and maintain too many socketio connections. The event loop simply
 gets overwhelmed. In reality the server app needs to defend itself.
 Once the app gets more than the CONNECTION_LIMIT, it will simulate closing the connection.
@@ -23,6 +23,10 @@ in the future. Since it would be in a cluster, the load balancer would be provid
 a sticky cookie with a TTL, so the app would need to schedule the disconnect at
 some point past the TTL, say 2*TTL. Clients would then reconnect and get
 round-robin'd by the load balancer to another server in the cluster.
+
+More info on socketio limitations. TODO add link. For simplicity, the CONNECTION_LIMIT
+is set very low in this app. In real life, a good target might be 200-500, with a
+limit somewhere between 700-1200, depending on the chattiness of your application.
 
 The app exposes this `connection_count` metric on the `/metrics` endpoint, and is
 scaled according to the average `connection_count`.
