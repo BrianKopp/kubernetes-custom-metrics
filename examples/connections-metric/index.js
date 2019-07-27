@@ -13,14 +13,14 @@ const app = express();
 
 app.get('/', (req, res) => res.send('Hello, World!'));
 app.get('/connection', (req, res) => {
-    console.log('Received connection request')
+    console.log('Received connection request');
     connectionCount++;
     let responseMsg = 'Here\'s a new connection! I have ' + connectionCount + ' connections so far!';
     if (connectionCount > CONNECTION_LIMIT) {
         // simulate disconnecting the connection
         console.log('More connections than desired, schedule reduction');
         setTimeout(() => {
-            console.log('Reducing connection')
+            console.log('Reducing connection');
             connectionCount--;
         }, STICKY_TTL * 2 * 1000);
         responseMsg += '\nI have more connections than I want, reduction scheduled.';
