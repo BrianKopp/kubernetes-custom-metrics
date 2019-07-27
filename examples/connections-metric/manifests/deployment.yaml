@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: connection-metrics-app
+spec:
+  selector:
+    matchLabels:
+      app: connection-metrics-server
+  template:
+    metadata:
+      labels:
+        app: connection-metrics-server
+    spec:
+      containers:
+      - name: connection-metrics-server
+        image: briankopp/connection-metrics-server:0.0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
