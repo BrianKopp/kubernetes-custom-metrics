@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+matadata:
+  name: connections-metric-hpa
+spec:
+  scaleTargetRef:
+    # Point at the connections metric app
+    apiVersion: apps/v1
+    kind: Deployment
+    name: connection-metrics-app
+  minReplicas: 1
+  maxReplicas: 20
+  metrics:
+  - type: Pods # use Pods metric, since the metric is attached to the pod
+    pods:
+      targetAverageValue: 5
+      metricName: cm_connection_count
