@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: connection-metrics-app
+spec:
+  selector:
+    matchLabels:
+      app: connection-metrics-server
+  template:
+    metadata:
+      labels:
+        app: connection-metrics-server
+    spec:
+      containers:
+      - name: connection-metrics-server
+        image: briankopp/k8s-custom-connections-metric:1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 3000
