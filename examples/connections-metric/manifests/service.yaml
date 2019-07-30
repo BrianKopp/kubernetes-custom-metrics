@@ -2,9 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: connections-metric-svc
+  labels:
+    hasCustomMetrics: 'true'
 spec:
   selector:
-    app: connections-metrics-server
+    app: connection-metrics-server
   ports:
   - port: 3000
   type: NodePort
