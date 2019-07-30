@@ -24,7 +24,9 @@ a sticky cookie with a TTL, so the app would need to schedule the disconnect at
 some point past the TTL, say 2*TTL. Clients would then reconnect and get
 round-robin'd by the load balancer to another server in the cluster.
 
-More info on socketio limitations. TODO add link. For simplicity, the CONNECTION_LIMIT
+More info on socketio limitations: [1](http://drewww.github.io/socket.io-benchmarking/),
+and [2](http://blog.mixu.net/2011/11/22/performance-benchmarking-socket-io-0-8-7-0-7-11-and-0-6-17-and-nodes-native-tcp/)
+For simplicity, the CONNECTION_LIMIT
 is set very low in this app. In real life, a good target might be 200-500, with a
 limit somewhere between 700-1200, depending on the chattiness of your application.
 
