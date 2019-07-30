@@ -6,7 +6,7 @@ let connectionCount = 0;
 const prometheusMetricString = `\
 # HELP cm_connection_count The value of some external metric\n\
 # TYPE cm_connection_count gauge\n\
-cm_connection_count \
+connection_count \
 `;
 
 const app = express();

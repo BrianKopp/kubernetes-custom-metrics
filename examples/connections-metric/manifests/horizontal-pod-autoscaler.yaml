@@ -1,6 +1,6 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
-matadata:
+metadata:
   name: connections-metric-hpa
 spec:
   scaleTargetRef:
@@ -14,4 +14,4 @@ spec:
   - type: Pods # use Pods metric, since the metric is attached to the pod
     pods:
       targetAverageValue: 5
-      metricName: cm_connection_count
+      metricName: connection_count
