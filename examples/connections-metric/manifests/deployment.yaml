@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: connection-metrics-server
-        image: briankopp/k8s-custom-connections-metric:0.0.3
+        image: briankopp/k8s-custom-connections-metric:1.0.0
         resources:
           limits:
             memory: "128Mi"
