@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 let externalMetricValue = Number(process.env.CUSTOM_METRIC || 0);
 
 const prometheusMetricString = `\
-# HELP cm_external_metric The value of some external metric\n\
-# TYPE cm_external_metric gauge\n\
-cm_external_metric \
+# HELP custom_external_metric The value of some external metric\n\
+# TYPE custom_external_metric gauge\n\
+custom_external_metric \
 `;
 
 const app = express();
