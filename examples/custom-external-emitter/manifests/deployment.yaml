@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-external-metrics-emitter
+spec:
+  selector:
+    matchLabels:
+      app: custom-external-metrics-emitter-app
+  template:
+    metadata:
+      labels:
+        app: custom-external-metrics-emitter-app
+    spec:
+      containers:
+      - name: custom-external-metrics-emitter-app
+        image: briankopp/k8s-custom-external-metric-emitter:0.0.2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 3000
