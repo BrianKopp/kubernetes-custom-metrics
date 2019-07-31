@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: object-metric-scaled-worker
+spec:
+  selector:
+    matchLabels:
+      app: object-metric-scaled-worker-app
+  template:
+    metadata:
+      labels:
+        app: object-metric-scaled-worker-app
+    spec:
+      containers:
+      - name: object-metric-scaled-worker-app
+        image: briankopp/k8s-object-metric-scaled-worker:0.0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 3000
