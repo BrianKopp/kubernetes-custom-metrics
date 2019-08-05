@@ -1,0 +1,12 @@
+prometheus:
+  url: 'http://prom-op-prometheus-operato-prometheus.monitoring.svc'
+rules:
+  custom:
+  - seriesQuery: 'connection_count{namespace!="",pod!=""}'
+    seriesFilters: []
+    resources:
+      template: <<.Resource>>
+    name:
+      matches: ""
+      as: ""
+    metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)

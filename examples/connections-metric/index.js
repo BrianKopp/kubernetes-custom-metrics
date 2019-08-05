@@ -15,7 +15,7 @@ app.get('/', (req, res) => res.send('Hello, World!'));
 app.get('/connection', (req, res) => {
     console.log('Received connection request');
     connectionCount++;
-    let responseMsg = 'Here\'s a new connection! I have ' + connectionCount + ' connections so far!';
+    let responseMsg = 'Here\'s a new connection! I have ' + connectionCount + ' connections so far!\n';
     if (connectionCount > CONNECTION_LIMIT) {
         // simulate disconnecting the connection
         console.log('More connections than desired, schedule reduction');
@@ -23,7 +23,7 @@ app.get('/connection', (req, res) => {
             console.log('Reducing connection');
             connectionCount--;
         }, STICKY_TTL * 2 * 1000);
-        responseMsg += '\nI have more connections than I want, reduction scheduled.';
+        responseMsg += 'I have more connections than I want, reduction scheduled.\n';
     }
     res.send(responseMsg);
 });

@@ -12,10 +12,10 @@ custom_external_metric \
 const app = express();
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => res.send('Hello, World!'));
+app.get('/', (req, res) => res.send('Hello, World!\n'));
 
 app.get('/metrics', (req, res) => {
-    res.send(prometheusMetricString + externalMetricValue);
+    res.send(prometheusMetricString + externalMetricValue + '\n');
 });
 
 app.get('/value', (req, res) => res.json({ value: externalMetricValue }));

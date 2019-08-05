@@ -15,23 +15,3 @@ spec:
     external:
       metricName: custom_external_metric
       targetAverageValue: 500
-# apiVersion: autoscaling/v2beta1
-# kind: HorizontalPodAutoscaler
-# metadata:
-#   name: object-metric-autoscaler
-# spec:
-#   scaleTargetRef:
-#     # Point at the connections metric app
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     name: object-metric-scaled-worker
-#   minReplicas: 1
-#   maxReplicas: 3
-#   metrics:
-#   - type: Object
-#     object:
-#       metricName: custom_external_metric
-#       target:
-#         name: custom-external-metrics-emitter-svc
-#         kind: Service
-#       targetAverageValue: 500
